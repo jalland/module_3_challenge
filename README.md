@@ -1,6 +1,6 @@
 # Password Generator Starter Code
 
-
+#Description: This repository uses HTML, CSS, and Javascript to generate a random password. A user specifies the number of characters wanted for the password, and if the password should include numbers, lowercase letters, uppercase letters, and/or special characters. Then, the ramdomly-generated password is printed to the screen.  
 
 # User Story
 AS AN employee with access to sensitive data

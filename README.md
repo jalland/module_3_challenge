@@ -5,6 +5,7 @@ This repository uses HTML, CSS, and Javascript to generate a random password. A 
 
 # Screenshot
 
+
 # Deployed Website
 https://jalland.github.io/module_3_challenge/
 

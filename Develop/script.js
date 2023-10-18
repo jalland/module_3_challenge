@@ -1,5 +1,5 @@
 // Assignment code here
-// lists if characters
+// Lists if characters
 listSpecialCharacters = ["!","#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","]","^","_","`","{","|","}","~"]
 listNumeric = ["1","2","3","4","5","6","7","8","9"]
 listLowercaseLetters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
@@ -37,15 +37,12 @@ function getUppercaseLetters(password){
   return password
 }
 
-
-
-
+//This function creates the password string. The string uses roughly equal amounts of different types of characters and shuffles the string at the end to be random assortment. 
 function generatePassword(userChoicePasswordLength,useNumericCharacters,useSpecialCharacters,useLowercaseLetters,useUppercaseLetters) {
   password = ""
 
-  //Find how many different character types there are
+  //Find how many different character types there should be in the password.
   characterTypes=[useSpecialCharacters,useNumericCharacters,useLowercaseLetters,useUppercaseLetters]
-  console.log(characterTypes)
   numberCharacterTypes=0; //This variable is the number of character types
   for(i=0;i<4;i++){
     if(characterTypes[i]===true){
@@ -81,17 +78,18 @@ function generatePassword(userChoicePasswordLength,useNumericCharacters,useSpeci
     difference = userChoicePasswordLength-totalCharacters
   }
   if(useSpecialCharacters){
-    arrayNumberTimesToRunEachCharacterType[0]=numberTimesToRunEachCharacterType+difference//Add difference between user character count and a non-divisible character count so that the total number of characters equals the user count. 
+    arrayNumberTimesToRunEachCharacterType[0]=numberTimesToRunEachCharacterType+difference
   }
   else if(useNumericCharacters){
-    arrayNumberTimesToRunEachCharacterType[1]=numberTimesToRunEachCharacterType+difference//Add difference between user character count and a non-divisible character count so that the total number of characters equals the user count. 
+    arrayNumberTimesToRunEachCharacterType[1]=numberTimesToRunEachCharacterType+difference
   }
   else if(useLowercaseLetters){
-    arrayNumberTimesToRunEachCharacterType[2]=numberTimesToRunEachCharacterType+difference//Add difference between user character count and a non-divisible character count so that the total number of characters equals the user count. 
+    arrayNumberTimesToRunEachCharacterType[2]=numberTimesToRunEachCharacterType+difference
   }
   else if(useUppercaseLetters){
-    arrayNumberTimesToRunEachCharacterType[3]=numberTimesToRunEachCharacterType//Add difference between user character count and a non-divisible character count so that the total number of characters equals the user count. 
+    arrayNumberTimesToRunEachCharacterType[3]=numberTimesToRunEachCharacterType
   }
+
   //Special characters added to the password
   for(i=0;i<arrayNumberTimesToRunEachCharacterType[0];i++){
     password=getSpecialCharacters(password);
@@ -115,8 +113,6 @@ function generatePassword(userChoicePasswordLength,useNumericCharacters,useSpeci
   return shuffledPassword
 }
 
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
@@ -125,34 +121,33 @@ function writePassword() {
   if (!userChoicePasswordLength) {
     return;
   }
-
+  //If user says length of less than 8 or greater than 128, return an error message. 
   if (userChoicePasswordLength<8 || userChoicePasswordLength>128) {
     window.alert("Password must be at least 8 and at maximum 128 characters.")
     return;
   }
 
+  //User specifies what character types they want in the password.
   var useSpecialCharacters = window.confirm("Click okay to use special characters.");
-  console.log(useSpecialCharacters)
-
   var useNumericCharacters = window.confirm("Click okay to use numeric letters.");
-  console.log(useNumericCharacters)
-
   var useLowercaseLetters = window.confirm("Click okay to use lowercase letters.");
-  console.log(useLowercaseLetters)
-
   var useUppercaseLetters = window.confirm("Click okay to use uppercase letters.");
-  console.log(useUppercaseLetters)
 
+  //If user does not have any character options, return an error. 
   if(!useSpecialCharacters && !useNumericCharacters && !useLowercaseLetters && !useUppercaseLetters){
     window.alert("You need to have either numbers, lowercase letters, uppercase letters, and/or special characters.");
     return;
   }
 
   var password = generatePassword(userChoicePasswordLength,useNumericCharacters,useSpecialCharacters,useLowercaseLetters,useUppercaseLetters);
-  console.log(password)
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
 
+// Get references to the #generate element
+var generateBtn = document.querySelector("#generate");
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+

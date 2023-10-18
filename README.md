@@ -4,6 +4,8 @@
 This repository uses HTML, CSS, and Javascript to generate a random password. A user specifies the number of characters wanted for the password, and if the password should include numbers, lowercase letters, uppercase letters, and/or special characters. Then, the ramdomly-generated password is printed to the screen.  
 
 # Screenshot
+![Screen Shot 2023-10-18 at 5 13 50 PM](https://github.com/jalland/module_3_challenge/assets/15932648/8c4e69c3-5b0b-4b40-8d27-f4a43be15bfd)
+
 
 # Deployed Website
 https://jalland.github.io/module_3_challenge/
